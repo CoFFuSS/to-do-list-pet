@@ -59,3 +59,14 @@ const endPoints = {
   phone: 495,
   fold: 300,
 };
+
+export const GlobalTheme = (theme: "black" | "light") => {
+  const selectedTheme = ThemeColor[theme];
+  return {
+    ...selectedTheme,
+    spaces,
+    fonts,
+    tops,
+    endPoints,
+  };
+};
