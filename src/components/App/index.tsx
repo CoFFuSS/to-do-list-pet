@@ -1,15 +1,19 @@
+import { ThemeProvider } from "styled-components";
 import { Footer } from "../Footer";
 import { GeneralContent } from "../GeneralContent";
 import { Header } from "../Header";
-import "./style.css";
+import { GlobalStyle } from "../../GlobalStyle";
+import { GlobalTheme } from "../../theme";
 
 export default function App() {
-  
   return (
     <>
-      <Header />
-      <GeneralContent />
-      <Footer />
+      <ThemeProvider theme={GlobalTheme}>
+        <GlobalStyle />
+        <Header />
+        <GeneralContent />
+        <Footer />
+      </ThemeProvider>
     </>
   );
 }

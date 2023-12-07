@@ -1,7 +1,13 @@
 export const Theme = [
-    { name: "Dark theme", value: "dark"},
-    { name: "Light theme", value: "light"},
+  { name: "Dark theme", value: "dark" },
+  { name: "Light theme", value: "light" },
 ];
+
+const colors = {
+  black: "#030304",
+  white: "FFF",
+  pink: "#FF527D",
+};
 
 const black = "#030304";
 const white = "FFF";
@@ -60,10 +66,19 @@ const endPoints = {
   fold: 300,
 };
 
-export const GlobalTheme = (theme: "black" | "light") => {
-  const selectedTheme = ThemeColor[theme];
+// export const GlobalTheme = (theme: "black" | "light") => {
+//   const selectedTheme = ThemeColor[theme];
+//   return {
+//     ...selectedTheme,
+//     spaces,
+//     fonts,
+//     tops,
+//     endPoints,
+//   };
+// };
+export const GlobalTheme = () => {
   return {
-    ...selectedTheme,
+    colors,
     spaces,
     fonts,
     tops,

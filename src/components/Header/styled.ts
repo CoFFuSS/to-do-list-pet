@@ -7,7 +7,7 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.background};
+  background-color: pink;
 `;
 
 export const Content = styled.div`
@@ -15,15 +15,15 @@ export const Content = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  max-width: ${({ theme }) => theme.spaces.maxContentWidth}px;
-  padding: ${({ theme }) => theme.spaces.m}px 0px;
-  @media (max-width: ${({ theme }) => theme.endPoints.fold}px) {
+  max-width: 1280px;
+  padding: 20px 0px;
+  @media (max-width: 300px) {
     padding: 0px;
   }
-  @media (max-width: ${({ theme }) => theme.endPoints.tabletL}px) {
-    margin: 0 ${({ theme }) => theme.spaces.m}px;
+  @media (max-width: 1280px) {
+    margin: 0 20px;
   }
-  @media (max-width: ${({ theme }) => theme.endPoints.fold}px) {
-    margin: 0 ${({ theme }) => theme.spaces.ss}px;
+  @media (max-width: 300px) {
+    margin: 0 10px;
   }
 `;
