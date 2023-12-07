@@ -1,7 +1,10 @@
 export const GeneralContent = () => {
   return (
     <>
-      <h3>Freak</h3>
+      <ul>
+        <li>first task</li>
+        <h3>Freak</h3>
+      </ul>
     </>
   );
 };
