@@ -24,3 +24,17 @@
 //   );
 // };
 // export default GlobalContextProvider;
+
+import React, { createContext } from 'react';
+import { TaskItem } from '../utils/types';
+
+
+
+
+export const TaskListContext = createContext<{
+  tasks: TaskItem[];
+  setTasks: React.Dispatch<React.SetStateAction<TaskItem[]>>;
+}>({
+  tasks: [],
+  setTasks: () => {},
+});

@@ -1,5 +1,3 @@
-// import { Dispatch } from "react";
-
 // export type ContextState = {
 //   state: State;
 //   changeState: Dispatch<Action>;
@@ -30,3 +28,8 @@ export interface ChildProps {
   tasks: TaskItem[];
   setTasks: React.Dispatch<React.SetStateAction<TaskItem[]>>;
 }
+
+// export interface TaskListContextTypes {
+//   stateValue: TaskItem[];
+//   setStateValue: React.Dispatch<React.SetStateAction<TaskItem[]>>;
+// }

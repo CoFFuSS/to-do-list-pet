@@ -1,9 +1,12 @@
-import { useState } from "react";
-import { ChildProps, TaskItem } from "../../../utils/types";
+import { useContext, useState } from "react";
+import { TaskItem } from "../../../utils/types";
+import { TaskListContext } from "../../../context/globalContext";
 
-export const TaskCreate: React.FC<ChildProps> = ({ tasks, setTasks }) => {
+export const TaskCreate = () => {
   const [showForm, setShowForm] = useState(false);
   const [text, setText] = useState("");
+
+  const { tasks, setTasks } = useContext(TaskListContext);
 
   const createTask = (text: string) => {
     const newTask: TaskItem = {
