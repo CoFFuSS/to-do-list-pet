@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const Task = styled.li`
+export const TaskList = styled.ul`
     
 `;
