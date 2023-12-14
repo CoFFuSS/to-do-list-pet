@@ -1,19 +1,18 @@
-import { useContext, useState } from "react";
-import { TaskItem } from "../../../utils/types";
-import { TaskListContext } from "../../../context/globalContext";
+import { useState } from "react";
+import { ChildProps, TaskItem } from "../../utils/types";
 
-export const TaskCreate = () => {
+export const TaskCreate = ({ tasks, setTasks }: ChildProps) => {
   const [showForm, setShowForm] = useState(false);
   const [text, setText] = useState("");
-
-  const { tasks, setTasks } = useContext(TaskListContext);
 
   const createTask = (text: string) => {
     const newTask: TaskItem = {
       id: +tasks.length,
-      task: text,
+      order: +tasks.length,
+      text: text,
     };
-    setTasks([...tasks, newTask]);
+    setTasks((tasks) => [...tasks, newTask]);
+    // setTasks([...tasks, newTask]); // callback
   };
 
   const handleButtonClick = () => {

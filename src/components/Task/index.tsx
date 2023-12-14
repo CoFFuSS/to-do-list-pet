@@ -1,21 +1,10 @@
-import { useContext } from "react";
-import { TaskListContext } from "../../context/globalContext";
-import { TaskItem } from "../../utils/types";
+import { TaskProps } from "../../utils/types";
 
-export const Task = ({ id, task }: TaskItem) => {
-  const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
-    event.dataTransfer.setData("text", event.currentTarget.id);
-  };
-
-  const { tasks, setTasks } = useContext(TaskListContext);
-
-  const handleDelete = () => {
-    setTasks(tasks.filter((task) => task.id !== id));
-  };
+export const Task = ({ onDelete, text }: TaskProps) => {
   return (
-    <div draggable="true" onDragStart={handleDragStart}>
-      <button onClick={handleDelete}>Удали </button>
-      {task}
-    </div>
+    <>
+      <button onClick={onDelete}>Удали </button>
+      {text}
+    </>
   );
 };
