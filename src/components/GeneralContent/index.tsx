@@ -48,29 +48,27 @@ export const GeneralContent = () => {
   };
 
   return (
-    <>
-      <TaskList>
-        {tasks.map((task) => (
-          <DragDiv
-            id="item"
-            className="item"
+    <TaskList>
+      {tasks.map((task) => (
+        <DragDiv
+          id="item"
+          className="item"
+          key={task.id}
+          draggable
+          onDragOver={(e) => dragOverHandler(e)}
+          onDragLeave={(e) => dragLeaveHandler(e)}
+          onDragStart={(e) => dragStartHandler(e, task)}
+          onDragEnd={(e) => dragEndHandler(e)}
+          onDrop={(e) => dropHandler(e, task)}
+        >
+          <Task
+            onDelete={() => handleDelete(task.id)}
             key={task.id}
-            draggable
-            onDragOver={(e) => dragOverHandler(e)}
-            onDragLeave={(e) => dragLeaveHandler(e)}
-            onDragStart={(e) => dragStartHandler(e, task)}
-            onDragEnd={(e) => dragEndHandler(e)}
-            onDrop={(e) => dropHandler(e, task)}
-          >
-            <Task
-              onDelete={() => handleDelete(task.id)}
-              key={task.id}
-              text={task.text}
-            />
-          </DragDiv>
-        ))}
-        <TaskCreate tasks={tasks} setTasks={setTasks} />
-      </TaskList>
-    </>
+            text={task.text}
+          />
+        </DragDiv>
+      ))}
+      <TaskCreate tasks={tasks} setTasks={setTasks} />
+    </TaskList>
   );
 };
