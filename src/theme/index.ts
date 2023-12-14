@@ -5,12 +5,12 @@ export const Theme = [
 
 const colors = {
   black: "#030304",
-  white: "FFF",
+  white: "FFFFFFF",
   pink: "#FF527D",
 };
 
 const black = "#030304";
-const white = "FFF";
+const white = "FFFFFFF";
 
 export const ThemeColor = {
   light: {

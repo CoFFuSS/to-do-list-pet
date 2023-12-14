@@ -12,7 +12,6 @@ export const TaskCreate = ({ tasks, setTasks }: ChildProps) => {
       text: text,
     };
     setTasks((tasks) => [...tasks, newTask]);
-    // setTasks([...tasks, newTask]); // callback
   };
 
   const handleButtonClick = () => {

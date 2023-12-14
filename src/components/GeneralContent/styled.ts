@@ -10,4 +10,5 @@ export const DragDiv = styled.div`
   margin: 5px 0;
   cursor: grab;
   background-color: #fcfcf9;
+  justify-content: space-around;
 `;
