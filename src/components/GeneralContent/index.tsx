@@ -7,6 +7,7 @@ import { Task } from "../Task";
 export const GeneralContent = () => {
   const [tasks, setTasks] = useState<TaskItem[]>([]);
   const [currentTask, setCurrentTask] = useState<TaskItem>({} as TaskItem);
+  const [currentPosX, setCurrentPosX] = useState(Number);
 
   const dragOverHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -25,6 +26,9 @@ export const GeneralContent = () => {
     e: React.DragEvent<HTMLDivElement>,
     task: TaskItem
   ) => {
+    const { clientX, clientY } = e;
+    setCurrentPosX((currentPosX) => clientX);
+    console.log(clientX, clientY);
     setCurrentTask(task);
   };
 
@@ -36,11 +40,19 @@ export const GeneralContent = () => {
   const dropHandler = (e: React.DragEvent<HTMLDivElement>, task: TaskItem) => {
     e.preventDefault();
     const dropIndex = tasks.indexOf(task);
-    setTasks((prevItems) => {
-      const newTasks = prevItems.filter((item) => item !== currentTask);
-      newTasks.splice(dropIndex, 0, currentTask);
-      return newTasks;
-    });
+
+    const { clientX, clientY } = e;
+    console.log(clientX, clientY);
+    console.log(currentPosX);
+    if (Math.abs(clientX - currentPosX) > 700) {
+      handleDelete(task.id); // может быть необходимо изменить под callback
+    } else {
+      setTasks((prevItems) => {
+        const newTasks = prevItems.filter((item) => item !== currentTask);
+        newTasks.splice(dropIndex, 0, currentTask);
+        return newTasks;
+      });
+    }
   };
 
   const handleDelete = (id: number) => {
