@@ -1,11 +1,11 @@
 import { TaskProps } from "../../utils/types";
-import { DeleteButton } from "./styled";
+import { DeleteButton, TextContent } from "./styled";
 
 export const Task = ({ onDelete, text }: TaskProps) => {
   return (
     <>
       <DeleteButton onClick={onDelete}></DeleteButton>
-      {text}
+      <TextContent>{text}</TextContent>
     </>
   );
 };

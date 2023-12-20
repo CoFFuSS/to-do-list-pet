@@ -7,7 +7,7 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: pink;
+  background-color: ${({ theme }) => theme.colors.pink};
 `;
 
 export const Content = styled.div`

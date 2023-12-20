@@ -5,7 +5,7 @@ export const Header = () => {
     <>
       <Container>
         <Content>
-          <h3>Freak</h3>
+          <h3>TO-DO LIST</h3>
           <h3>AntiFreak</h3>
         </Content>
       </Container>

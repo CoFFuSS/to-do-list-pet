@@ -27,7 +27,8 @@ export const GeneralContent = () => {
     task: TaskItem
   ) => {
     const { clientX, clientY } = e;
-    setCurrentPosX((currentPosX) => clientX);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    setCurrentPosX((_currentPosX) => clientX);
     console.log(clientX, clientY);
     setCurrentTask(task);
   };
@@ -44,7 +45,7 @@ export const GeneralContent = () => {
     const { clientX, clientY } = e;
     console.log(clientX, clientY);
     console.log(currentPosX);
-    if (Math.abs(clientX - currentPosX) > 700) {
+    if (Math.abs(clientX - currentPosX) > 500) {
       handleDelete(task.id); // может быть необходимо изменить под callback
     } else {
       setTasks((prevItems) => {
@@ -59,6 +60,8 @@ export const GeneralContent = () => {
     setTasks((tasks) => tasks.filter((task) => task.id !== id));
   };
 
+  // const handleEdit = ()
+
   return (
     <TaskList>
       {tasks.map((task) => (
@@ -66,6 +69,7 @@ export const GeneralContent = () => {
           id="item"
           className="item"
           key={task.id}
+          // onClick={() => handleEdit()}
           draggable
           onDragOver={(e) => dragOverHandler(e)}
           onDragLeave={(e) => dragLeaveHandler(e)}
