@@ -1,15 +1,21 @@
-import { useState } from "react";
-import { ChildProps, TaskItem } from "../../utils/types";
-import { CreateTask, CreateTaskButton, CreateTaskForm } from "./styled";
+import { useId, useState } from "react";
+import { TaskItem } from "../../utils/types";
+import { CreateTask, CreateTaskButton, CreateTaskInput, TextInput } from "./styled";
 
-export const TaskCreate = ({ tasks, setTasks }: ChildProps) => {
+
+interface TaskCreateProps {
+  tasks: TaskItem[];
+  setTasks: React.Dispatch<React.SetStateAction<TaskItem[]>>;
+}
+
+
+export const TaskCreate = ({ tasks, setTasks }: TaskCreateProps) => {
   const [showForm, setShowForm] = useState(false);
   const [text, setText] = useState("");
 
   const createTask = (text: string) => {
     const newTask: TaskItem = {
       id: +tasks.length,
-      order: +tasks.length,
       text: text,
     };
     setTasks((tasks) => [...tasks, newTask]);
@@ -19,23 +25,30 @@ export const TaskCreate = ({ tasks, setTasks }: ChildProps) => {
     setShowForm(!showForm);
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     createTask(text);
     setText("");
     setShowForm(!showForm);
   };
+
+  const id = useId();
+
   return (
     <CreateTask>
       {showForm ? (
-        <CreateTaskForm onSubmit={handleSubmit}>
-          <input
+        <CreateTaskInput>
+          <label htmlFor={id}>
+            <TextInput
+            id={id}
             type="text"
             value={text}
             onChange={(event) => setText(event.target.value)}
-          />
-          <button type="submit">Create Task</button>
-        </CreateTaskForm>
+            />
+            <span className='placeholder'>Enter task text</span>
+          </label>
+          
+          <button onClick={() => handleSubmit()}>Create Task</button>
+        </CreateTaskInput>
       ) : (
         <CreateTaskButton onClick={handleButtonClick}>
           Create Task

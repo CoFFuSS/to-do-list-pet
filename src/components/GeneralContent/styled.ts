@@ -19,4 +19,5 @@ export const DragDiv = styled.div`
   cursor: grab;
   background-color: #fcfcf9;
   align-items: center;
+  word-break: break-word
 `;

@@ -11,7 +11,7 @@ export const CreateTaskButton = styled.div`
   cursor: pointer;
 `;
 
-export const CreateTaskForm = styled.form`
+export const CreateTaskInput = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
@@ -27,6 +27,11 @@ export const CreateTask = styled.div`
   justify-content: center;
 `;
 
-export const TaskInput = styled.input`
-  width: 300px;
+export const TextInput = styled.input`
+padding: 5px;
+border: none;
+border-bottom: 2px solid ${({ theme }) => theme.colors.pink}
+&:focus {
+  background-color: black;
+}
 `;

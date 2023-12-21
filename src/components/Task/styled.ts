@@ -11,9 +11,7 @@ export const DeleteButton = styled.button`
 `;
 
 export const TextContent = styled.div`
-  width: inherit;
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  word-wrap: break-word;
 `;
